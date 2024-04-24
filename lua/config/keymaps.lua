@@ -1,70 +1,53 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
-local k = vim.keymap
+local map = vim.keymap.set
 
 -- leader key
 vim.g.mapleader = " "
 
 -- ---------- INSERT mode ---------- --
-k.set("i", "jk", "<ESC>")
-k.set("i", "kj", "<ESC>")
+map("i", "jk", "<ESC>")
+map("i", "kj", "<ESC>")
 
 -- ---------- VISUAL mode ---------- --
-k.set("v", "jk", "<ESC>")
-k.set("v", "kj", "<ESC>")
-
--- move one or more lines
-k.set("v", "J", ":m '>+1<CR>gv=gv")
-k.set("v", "K", ":m '<-2<CR>gv=gv")
-
--- indent left or right
--- k.set("v", ">", ">gv")
--- k.set("v", "<", "<gv")
+map("v", "jk", "<ESC>")
+map("v", "kj", "<ESC>")
 
 -- fold
-k.set("v", "<leader>f", "zf")
+-- map("v", "<leader>f", "zf", { desc = "Create fold" })
 
 -- ---------- INSERT mode ---------- --
-k.set("i", "<C-s>", "<ESC>:w<CR>") -- auto indent
+map("i", "<C-s>", "<ESC>:w<CR>", { desc = "Save" }) -- save
 
 -- ---------- NORMAL mode ---------- --
 -- select all
-k.set("n", "<C-A>", "ggVGy") -- copy
-k.set("n", "<C-X>", "ggdG") -- delete
-k.set("n", "<leader>=", "gg=G") -- auto indent
+map("n", "<C-A>", "ggVGy", { desc = "Copy All" }) -- copy
+map("n", "<C-X>", "ggdG", { desc = "Delete All" }) -- delete
+map("n", "<leader>=", "gg=G", { desc = "Auto Indent" }) -- auto indent
 
 -- save
-k.set("n", "<C-s>", "<ESC>:w<CR>")
+map("n", "<C-s>", "<ESC>:w<CR>", { desc = "Save" })
 
 -- window
--- k.set("n", "<leader>sh", "<C-w>v") -- add window horizontally
--- k.set("n", "<leader>sv", "<C-w>s") -- add window vertically
--- k.set("n", "<leader>sc", "<C-w>c") -- close current window
--- k.set("n", "<leader>so", "<C-w>o") -- close other window
+-- map("n", "<leader>sh", "<C-w>v") -- add window horizontally
+-- map("n", "<leader>sv", "<C-w>s") -- add window vertically
+-- map("n", "<leader>sc", "<C-w>c") -- close current window
+-- map("n", "<leader>so", "<C-w>o") -- close other window
 
 -- move cursor
-k.set("n", "<leader>j", "<C-w>j") -- move down
-k.set("n", "<leader>k", "<C-w>k") -- move up
-k.set("n", "<leader>h", "<C-w>h") -- move left
-k.set("n", "<leader>l", "<C-w>l") -- move right
--- k.set("n", "<leader>w", "<C-w>w") -- move in a loop
+map("n", "<leader>j", "<C-w>j", { desc = "Move Down" }) -- move down
+map("n", "<leader>k", "<C-w>k", { desc = "Move Up" }) -- move up
+map("n", "<leader>h", "<C-w>h", { desc = "Move Left" }) -- move left
+map("n", "<leader>l", "<C-w>l", { desc = "Move Right" }) -- move right
+-- map("n", "<leader>w", "<C-w>w") -- move in a loop
 
-k.set("n", "<leader>nh", ":nohl<CR>")
+map("n", "<leader>nh", "<cmd>nohl<cr>", { desc = "No Highlight" })
 
 -- buffer
-k.set("n", "J", ":bprevious<CR>")
-k.set("n", "K", ":bnext<CR>")
-k.set("n", "X", ":bdelete!<CR>")
+map("n", "J", "<cmd>bprevious<cr>", { desc = "Next Buffer" })
+-- map("n", "K", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+map("n", "X", "<cmd>bdelete<cr>", { desc = "Next Buffer" })
 
 -- fold or unfold
-k.set("n", "<leader>a", "za")
-
--- ---------- plugins ---------- --
--- nvim-tree
--- k.set("n", "<leader>e", ":NvimTreeToggle<CR>")
-
--- colorizer
--- k.set("n", "<leader>ca", ":ColorizerAttachToBuffer<CR>")
--- k.set("n", "<leader>cd", ":ColorizerDetachFromBuffer<CR>")
--- k.set("n", "<leader>cr", ":ColorizerReloadAllBuffers<CR>")
+map("n", "<leader>a", "za", { desc = "Switch Fold" })
