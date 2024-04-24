@@ -1,6 +1,40 @@
 return {
+  -- Add plugins
   {
     "h-hg/fcitx.nvim", -- better input method
+    event = { "FileReadPre", "BufReadPre", "User FileOpened" },
+  },
+
+  {
+    "norcalli/nvim-colorizer.lua", -- color highlight
+    event = { "FileReadPre", "BufReadPre", "User FileOpened" },
+  },
+
+  { -- This plugin
+    "Zeioth/compiler.nvim",
+    cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
+    dependencies = { "stevearc/overseer.nvim" },
+    opts = {},
+  },
+  { -- The task runner we use
+    "stevearc/overseer.nvim",
+    commit = "68a2d344cea4a2e11acfb5690dc8ecd1a1ec0ce0",
+    cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
+    opts = {
+      task_list = {
+        direction = "bottom",
+        min_height = 25,
+        max_height = 25,
+        default_detail = 1,
+      },
+    },
+  },
+
+  {
+    "lunarvim/bigfile.nvim",
+    config = function()
+      require("bigfile").setup()
+    end,
     event = { "FileReadPre", "BufReadPre", "User FileOpened" },
   },
 
@@ -52,67 +86,16 @@ return {
       })
     end,
   },
-  -- override nvim-cmp
-  -- {
-  --   "hrsh7th/nvim-cmp",
-  --   opts = function()
-  --     vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
-  --     local cmp = require("cmp")
-  --     local defaults = require("cmp.config.default")()
-  --     return {
-  --       auto_brackets = {}, -- configure any filetype to auto add brackets
-  --       completion = {
-  --         completeopt = "menu,menuone,noinsert",
-  --       },
-  --       window = {
-  --         documentation = {
-  --           border = "rounded",
-  --           -- scrollbar = "║",
-  --         },
-  --         completion = {
-  --           border = "rounded",
-  --           -- scrollbar = "║",
-  --         },
-  --       },
-  --       mapping = cmp.mapping.preset.insert({
-  --         ["<Tab>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-  --         ["<S-Tab>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-  --         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-  --         ["<C-f>"] = cmp.mapping.scroll_docs(4),
-  --         ["<C-Space>"] = cmp.mapping.complete(),
-  --         ["<C-e>"] = cmp.mapping.abort(),
-  --         ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-  --         ["<S-CR>"] = cmp.mapping.confirm({
-  --           behavior = cmp.ConfirmBehavior.Replace,
-  --           select = true,
-  --         }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-  --         ["<C-CR>"] = function(fallback)
-  --           cmp.abort()
-  --           fallback()
-  --         end,
-  --       }),
-  --       sources = cmp.config.sources({
-  --         { name = "nvim_lsp" },
-  --         { name = "path" },
-  --       }, {
-  --         { name = "buffer" },
-  --       }),
-  --       formatting = {
-  --         format = function(_, item)
-  --           local icons = require("lazyvim.config").icons.kinds
-  --           if icons[item.kind] then
-  --             item.kind = icons[item.kind] .. item.kind
-  --           end
-  --           return item
-  --         end,
-  --       },
-  --       experimental = {
-  --         ghost_text = {
-  --           hl_group = "CmpGhostText",
-  --         },
-  --       },
-  --       sorting = defaults.sorting,
-  --     }
-  --   end,
-  -- },
+
+  -- Disable virtual text in lines
+  -- To show diagnostics, move cursor to the line to show a floating window
+  -- See `autocmds.lua` to get more
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      diagnostics = {
+        virtual_text = false,
+      },
+    },
+  },
 }

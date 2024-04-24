@@ -4,7 +4,6 @@
 local opt = vim.opt
 local o = vim.o
 local g = vim.g
-local cmd = vim.cmd
 
 -- encodeing
 opt.encoding = "utf-8"
@@ -22,9 +21,9 @@ opt.expandtab = true -- tab 2 space
 opt.autoindent = true
 opt.smartindent = true
 
--- display lines with a line break
 opt.wrap = true
 
+-- display lines with a line break
 opt.cursorline = true
 
 -- keep space when moving cursor
@@ -49,7 +48,7 @@ opt.autoread = true
 -- time wait for typing shortcut keys
 opt.timeoutlen = 400
 
-opt.signcolumn = "yes"
+-- opt.signcolumn = "yes"
 
 opt.showmode = false
 
@@ -64,16 +63,4 @@ opt.showtabline = 2
 opt.wildmenu = true
 opt.pumheight = 10
 
----- theme ----
--- opt.termguicolors = true
--- vim.cmd([[colorscheme tokyonight-moon]])
--- vim.cmd[[colorscheme tokyonight-night]]
-
----- other ----
--- disable automatic comment wrapping and insertion of comment leaders
-cmd("autocmd BufEnter * silent! set formatoptions-=cro")
-cmd("autocmd BufEnter * silent! setlocal formatoptions-=cro")
-
--- remember fold
-cmd("autocmd BufWinLeave * silent! mkview")
-cmd("autocmd BufWinEnter * silent! loadview")
+g.autoformat = false
