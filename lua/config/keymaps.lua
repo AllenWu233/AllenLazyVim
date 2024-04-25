@@ -17,26 +17,22 @@ map("v", "kj", "<ESC>")
 -- fold
 -- map("v", "<leader>f", "zf", { desc = "Create fold" })
 
--- ---------- INSERT mode ---------- --
-map("i", "<C-s>", "<ESC>:w<CR>", { desc = "Save" }) -- save
-
 -- ---------- NORMAL mode ---------- --
 -- select all
-map("n", "<C-A>", "ggVGy", { desc = "Copy All" }) -- copy
-map("n", "<C-X>", "ggdG", { desc = "Delete All" }) -- delete
-map("n", "<leader>=", "gg=G", { desc = "Auto Indent" }) -- auto indent
+map("n", "<C-A>", "ggVGy", { desc = "Copy All" })
+map("n", "<C-X>", "ggdG", { desc = "Delete All" })
+map("n", "<leader>=", "gg=G", { desc = "Auto Indent" })
 
 -- save
 map("n", "<C-s>", "<ESC>:w<CR>", { desc = "Save" })
 
 -- move cursor
-map("n", "<leader>j", "<C-w>j", { desc = "Move Down" }) -- move down
-map("n", "<leader>k", "<C-w>k", { desc = "Move Up" }) -- move up
-map("n", "<leader>h", "<C-w>h", { desc = "Move Left" }) -- move left
-map("n", "<leader>l", "<C-w>l", { desc = "Move Right" }) -- move right
--- map("n", "<leader>w", "<C-w>w") -- move in a loop
+map("n", "<leader>j", "<C-w>j", { desc = "Move Down" })
+map("n", "<leader>k", "<C-w>k", { desc = "Move Up" })
+map("n", "<leader>h", "<C-w>h", { desc = "Move Left" })
+map("n", "<leader>l", "<C-w>l", { desc = "Move Right" })
 
-map("n", "<leader>nh", "<cmd>nohl<cr>", { desc = "No Highlight" })
+-- map("n", "<leader>nh", "<cmd>nohl<cr>", { desc = "No Highlight" })
 
 -- buffer
 map("n", "X", "<cmd>bdelete<cr>", { desc = "Close Tab" })
