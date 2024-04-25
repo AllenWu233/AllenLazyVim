@@ -1,5 +1,5 @@
 return {
-  -- Add plugins
+  -- ----- Add Plugins ----- --
   {
     "h-hg/fcitx.nvim", -- better input method
     event = { "FileReadPre", "BufReadPre", "User FileOpened" },
@@ -8,7 +8,6 @@ return {
   {
     "norcalli/nvim-colorizer.lua", -- color highlight
     cmd = { "ColorizerAttachToBuffer", "ColorizerDetachFromBuffer", "ColorizerReloadAllBuffer", "ColorizerToggle" },
-    -- event = { "FileReadPre", "BufReadPre", "User FileOpened" },
   },
 
   { -- This plugin
@@ -39,6 +38,8 @@ return {
     event = { "FileReadPre", "BufReadPre", "User FileOpened" },
   },
 
+
+  -- ----- Change Settings ----- --
   -- Use <tab> for completion and snippets (supertab)
   -- first: disable default <tab> and <s-tab> behavior in LuaSnip
   {
