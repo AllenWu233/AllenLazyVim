@@ -7,7 +7,8 @@ return {
 
   {
     "norcalli/nvim-colorizer.lua", -- color highlight
-    event = { "FileReadPre", "BufReadPre", "User FileOpened" },
+    cmd = { "ColorizerAttachToBuffer", "ColorizerDetachFromBuffer", "ColorizerReloadAllBuffer", "ColorizerToggle" },
+    -- event = { "FileReadPre", "BufReadPre", "User FileOpened" },
   },
 
   { -- This plugin

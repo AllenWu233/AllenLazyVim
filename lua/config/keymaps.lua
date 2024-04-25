@@ -29,12 +29,6 @@ map("n", "<leader>=", "gg=G", { desc = "Auto Indent" }) -- auto indent
 -- save
 map("n", "<C-s>", "<ESC>:w<CR>", { desc = "Save" })
 
--- window
--- map("n", "<leader>sh", "<C-w>v") -- add window horizontally
--- map("n", "<leader>sv", "<C-w>s") -- add window vertically
--- map("n", "<leader>sc", "<C-w>c") -- close current window
--- map("n", "<leader>so", "<C-w>o") -- close other window
-
 -- move cursor
 map("n", "<leader>j", "<C-w>j", { desc = "Move Down" }) -- move down
 map("n", "<leader>k", "<C-w>k", { desc = "Move Up" }) -- move up
@@ -45,9 +39,28 @@ map("n", "<leader>l", "<C-w>l", { desc = "Move Right" }) -- move right
 map("n", "<leader>nh", "<cmd>nohl<cr>", { desc = "No Highlight" })
 
 -- buffer
-map("n", "J", "<cmd>bprevious<cr>", { desc = "Next Buffer" })
+-- map("n", "J", "<cmd>bprevious<cr>", { desc = "Next Buffer" })
 -- map("n", "K", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-map("n", "X", "<cmd>bdelete<cr>", { desc = "Next Buffer" })
+map("n", "X", "<cmd>bdelete<cr>", { desc = "Close Tab" })
 
 -- fold or unfold
 map("n", "<leader>a", "za", { desc = "Switch Fold" })
+
+
+-- ---------- PLUGINS ---------- --
+-- compiler.nvim
+-- Open compiler
+map("n", "<C-b>", "<cmd>CompilerOpen<cr>", { desc = "Open Compiler", noremap = true, silent = true })
+
+-- Redo last selected option
+map("n", "B",
+  "<cmd>CompilerStop<cr>" -- (Optional, to dispose all tasks before redo)
+  .. "<cmd>CompilerRedo<cr>",
+  { desc = "Redo Compile", noremap = true, silent = true })
+
+-- Toggle compiler results
+map("n", "<F6>", "<cmd>CompilerToggleResults<cr>", { desc = "Toggle Compiler", noremap = true, silent = true })
+
+
+-- outline.nvim
+map("n", "<leader>o", "<cmd>Outline<cr>", { desc = "Open Outline" })
