@@ -39,8 +39,6 @@ map("n", "<leader>l", "<C-w>l", { desc = "Move Right" }) -- move right
 map("n", "<leader>nh", "<cmd>nohl<cr>", { desc = "No Highlight" })
 
 -- buffer
--- map("n", "J", "<cmd>bprevious<cr>", { desc = "Next Buffer" })
--- map("n", "K", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "X", "<cmd>bdelete<cr>", { desc = "Close Tab" })
 
 -- fold or unfold

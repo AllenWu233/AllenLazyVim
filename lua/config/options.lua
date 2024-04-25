@@ -64,3 +64,5 @@ opt.scrolloff = 999
 -- opt.pumheight = 10
 
 g.autoformat = false
+
+opt.foldmethod = "manual"
