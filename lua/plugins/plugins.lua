@@ -38,7 +38,6 @@ return {
     event = { "FileReadPre", "BufReadPre", "User FileOpened" },
   },
 
-
   -- ----- Change Settings ----- --
   -- Use <tab> for completion and snippets (supertab)
   -- first: disable default <tab> and <s-tab> behavior in LuaSnip
@@ -97,6 +96,28 @@ return {
     opts = {
       diagnostics = {
         virtual_text = false,
+      },
+    },
+  },
+
+  {
+    "ahmedkhalf/project.nvim",
+    opts = {
+      manual_mode = false,
+    },
+  },
+
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        ["cpp"] = { "clang_format" },
+        ["c"] = { "clang_format" },
+      },
+      formatters = {
+        clang_format = {
+          prepend_args = { "-style={ IndentWidth: 4 }" },
+        },
       },
     },
   },

@@ -63,6 +63,6 @@ opt.scrolloff = 999
 -- opt.wildmenu = true
 -- opt.pumheight = 10
 
-g.autoformat = false
+-- g.autoformat = false
 
-opt.foldmethod = "manual"
+-- opt.foldmethod = "manual"
