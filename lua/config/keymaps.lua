@@ -56,6 +56,3 @@ map(
 
 -- Toggle compiler results
 map("n", "<M-b>", "<cmd>CompilerToggleResults<cr>", { desc = "Toggle Compiler", noremap = true, silent = true })
-
--- outline.nvim
-map("n", "<leader>o", "<cmd>Outline<cr>", { desc = "Open Outline" })

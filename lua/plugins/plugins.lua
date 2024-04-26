@@ -1,3 +1,11 @@
+-- For "mfussenegger/nvim-dap"
+local function get_workspace_folder_name(path)
+  local ts = string.reverse(path)
+  local _, i = string.find(ts, "/")
+  local m = string.len(ts) - i + 1 -- last '/'
+  return string.sub(path, m + 1)
+end
+
 return {
   -- ----- Add Plugins ----- --
   {
@@ -120,5 +128,103 @@ return {
         },
       },
     },
+  },
+
+  -- {
+  --   "folke/which-key.nvim",
+  --   opts = {
+  --     defaults = {
+  --       ["<leader>d"] = { name = "+debug" },
+  --     },
+  --   },
+  -- },
+
+  {
+    "mfussenegger/nvim-dap",
+    optional = true,
+    dependencies = {
+      -- Ensure C/C++ debugger is installed
+      "williamboman/mason.nvim",
+      optional = true,
+      opts = function(_, opts)
+        if type(opts.ensure_installed) == "table" then
+          vim.list_extend(opts.ensure_installed, { "codelldb" })
+        end
+      end,
+    },
+    opts = function()
+      local dap = require("dap")
+      if not dap.adapters["codelldb"] then
+        require("dap").adapters["codelldb"] = {
+          type = "server",
+          host = "localhost",
+          port = "${port}",
+          executable = {
+            command = "codelldb",
+            args = {
+              "--port",
+              "${port}",
+            },
+          },
+        }
+      end
+      for _, lang in ipairs({ "c", "cpp" }) do
+        dap.configurations[lang] = {
+          {
+            type = "codelldb",
+            request = "launch",
+            name = "Launch file",
+            program = function()
+              return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/bin/program", "file")
+            end,
+            cwd = "${workspaceFolder}",
+          },
+          {
+            type = "codelldb",
+            request = "attach",
+            name = "Attach to process",
+            processId = require("dap.utils").pick_process,
+            cwd = "${workspaceFolder}",
+          },
+        }
+      end
+      dap.configurations.rust = {
+        {
+          name = "Launch",
+          type = "codelldb",
+          request = "launch",
+          program = function() -- Ask the user what executable wants to debug
+            -- return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/bin/program", "file")
+            return vim.fn.input(
+              "Path to executable: ",
+              vim.fn.getcwd() .. "/target/debug/" .. get_workspace_folder_name(vim.fn.getcwd()),
+              "file"
+            )
+          end,
+          cwd = "${workspaceFolder}",
+          -- stopOnEntry = false,
+          -- args = {},
+          -- initCommands = function() -- add rust types support (optional)
+          --   -- Find out where to look for the pretty printer Python module
+          --   local rustc_sysroot = vim.fn.trim(vim.fn.system("rustc --print sysroot"))
+          --
+          --   local script_import = 'command script import "' .. rustc_sysroot .. '/lib/rustlib/etc/lldb_lookup.py"'
+          --   local commands_file = rustc_sysroot .. "/lib/rustlib/etc/lldb_commands"
+          --
+          --   local commands = {}
+          --   local file = io.open(commands_file, "r")
+          --   if file then
+          --     for line in file:lines() do
+          --       table.insert(commands, line)
+          --     end
+          --     file:close()
+          --   end
+          --   table.insert(commands, 1, script_import)
+          --
+          --   return commands
+          -- end,
+        },
+      }
+    end,
   },
 }
