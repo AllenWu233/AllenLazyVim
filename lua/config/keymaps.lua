@@ -56,3 +56,6 @@ map(
 
 -- Toggle compiler results
 map("n", "<M-b>", "<cmd>CompilerToggleResults<cr>", { desc = "Toggle Compiler", noremap = true, silent = true })
+
+-- nvim-colorizer.lua
+map("n", "<leader>ch", "<cmd>ColorizerAttachToBuffer<cr>", { desc = "Highlight Color", noremap = true, silent = true })
