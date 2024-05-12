@@ -11,8 +11,8 @@ map("i", "jk", "<ESC>")
 map("i", "kj", "<ESC>")
 
 -- ---------- VISUAL mode ---------- --
-map("v", "jk", "<ESC>")
-map("v", "kj", "<ESC>")
+-- map("v", "jk", "<ESC>")
+-- map("v", "kj", "<ESC>")
 
 -- fold
 -- map("v", "<leader>f", "zf", { desc = "Create fold" })
@@ -23,16 +23,11 @@ map("n", "<C-A>", "ggVGy", { desc = "Copy All" })
 map("n", "<C-X>", "ggdG", { desc = "Delete All" })
 map("n", "<leader>=", "gg=G", { desc = "Auto Indent" })
 
--- save
-map("n", "<C-s>", "<ESC>:w<CR>", { desc = "Save" })
-
 -- move cursor
 map("n", "<leader>j", "<C-w>j", { desc = "Move Down" })
 map("n", "<leader>k", "<C-w>k", { desc = "Move Up" })
 map("n", "<leader>h", "<C-w>h", { desc = "Move Left" })
 map("n", "<leader>l", "<C-w>l", { desc = "Move Right" })
-
--- map("n", "<leader>nh", "<cmd>nohl<cr>", { desc = "No Highlight" })
 
 -- buffer
 map("n", "X", "<cmd>bdelete<cr>", { desc = "Close Tab" })
