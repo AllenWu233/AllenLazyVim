@@ -38,16 +38,4 @@ return {
     end,
     event = { "FileReadPre", "BufReadPre", "User FileOpened" },
   },
-
-  -- {
-  --   "https://git.sr.ht/~swaits/zellij-nav.nvim",
-  --   event = "VeryLazy",
-  --   keys = {
-  --     { "<M-h>", "<cmd>ZellijNavigateLeft<cr>", { silent = true, desc = "Navigate Left" } },
-  --     { "<M-j>", "<cmd>ZellijNavigateDown<cr>", { silent = true, desc = "Navigate Down" } },
-  --     { "<M-k>", "<cmd>ZellijNavigateUp<cr>", { silent = true, desc = "Navigate Up" } },
-  --     { "<M-l>", "<cmd>ZellijNavigateRight<cr>", { silent = true, desc = "Navigate Right" } },
-  --   },
-  --   opts = {},
-  -- },
 }
