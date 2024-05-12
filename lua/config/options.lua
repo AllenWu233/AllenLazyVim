@@ -21,7 +21,9 @@ opt.shiftwidth = 4
 -- opt.autoindent = true
 -- opt.smartindent = true
 
--- opt.wrap = true
+opt.wrap = true
+opt.linebreak = true
+opt.wrapmargin = 2
 
 -- display lines with a line break
 -- opt.cursorline = true
