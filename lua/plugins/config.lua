@@ -19,7 +19,7 @@ return {
       return {}
     end,
   },
-  -- then: setup supertab in cmp
+  -- -- then: setup supertab in cmp
   {
     "hrsh7th/nvim-cmp",
     ---@param opts cmp.ConfigSchema
@@ -79,6 +79,7 @@ return {
     },
   },
 
+  -- Set indent width of LSP formatter for c/cpp
   {
     "stevearc/conform.nvim",
     opts = {
@@ -169,5 +170,27 @@ return {
         },
       }
     end,
+  },
+
+  {
+    "folke/noice.nvim",
+    opts = {
+      routes = {
+        -- Disable compile SUCCESS/FAILURE notification for compiler.nvim
+        {
+          filter = {
+            event = "notify",
+            kind = "info",
+            any = {
+              -- { event = "compiler.nvim" },
+              -- { find = "compiler" },
+              { find = "SUCCESS" },
+              { find = "FAILURE" },
+            },
+          },
+          opts = { skip = true },
+        },
+      },
+    },
   },
 }

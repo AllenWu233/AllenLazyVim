@@ -35,7 +35,8 @@ autocmd("BufWinEnter", {
 })
 
 -- Float window for Show line diagnostics automatically in hover window
-autocmd({ "CursorHold", "CursorHoldI" }, {
+-- autocmd({ "CursorHold", "CursorHoldI" }, {
+autocmd("CursorHold", {
   group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
   callback = function()
     vim.diagnostic.open_float(nil, { focus = false })
