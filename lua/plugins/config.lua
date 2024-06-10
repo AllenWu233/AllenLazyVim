@@ -179,8 +179,8 @@ return {
         -- Disable compile SUCCESS/FAILURE notification for compiler.nvim
         {
           filter = {
-            event = "notify",
-            kind = "info",
+            -- event = "notify",
+            -- kind = "info",
             any = {
               -- { event = "compiler.nvim" },
               -- { find = "compiler" },
