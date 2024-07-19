@@ -14,7 +14,7 @@ opt.fileencodings = { "utf-8", "ucs-bom", "gb18030", "gbk", "gb2312", "cp936" }
 opt.tabstop = 4
 opt.shiftwidth = 4
 
-opt.wrap = true
+-- opt.wrap = true
 opt.linebreak = true
 opt.wrapmargin = 2
 

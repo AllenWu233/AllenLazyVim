@@ -31,11 +31,23 @@ return {
     },
   },
 
+  -- {
+  --   "lunarvim/bigfile.nvim",
+  --   config = function()
+  --     require("bigfile").setup()
+  --   end,
+  --   event = { "FileReadPre", "BufReadPre", "User FileOpened" },
+  -- },
+
+  -- For productivity metrics, goals, leaderboards, and automatic time tracking
+  { "wakatime/vim-wakatime", lazy = false },
+
   {
-    "lunarvim/bigfile.nvim",
-    config = function()
-      require("bigfile").setup()
-    end,
-    event = { "FileReadPre", "BufReadPre", "User FileOpened" },
+    "echasnovski/mini.pairs",
+    opts = {
+      mappings = {
+        ["'"] = {},
+      },
+    },
   },
 }

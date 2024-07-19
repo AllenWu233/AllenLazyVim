@@ -60,3 +60,11 @@ autocmd("FileType", {
     vim.opt.tabstop = 4
   end,
 })
+
+-- Disable autopair ' for rust files
+autocmd("FileType", {
+  pattern = "rust",
+  callback = function()
+    vim.keymap.set("i", "'", "'", { buffer = 0 })
+  end,
+})
