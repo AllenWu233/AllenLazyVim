@@ -14,25 +14,25 @@ local save_fold = augroup("Persistent Folds", { clear = true })
 -- cmd("autocmd BufWinLeave * silent! mkview")
 -- cmd("autocmd BufWinEnter * silent! loadview")
 
-autocmd("BufEnter", {
-  command = "set formatoptions-=cro",
-})
-
-autocmd("BufWinLeave", {
-  pattern = "*.*",
-  callback = function()
-    vim.cmd.mkview()
-  end,
-  group = save_fold,
-})
-
-autocmd("BufWinEnter", {
-  pattern = "*.*",
-  callback = function()
-    vim.cmd.loadview({ mods = { emsg_silent = true } })
-  end,
-  group = save_fold,
-})
+-- autocmd("BufEnter", {
+--   command = "set formatoptions-=cro",
+-- })
+--
+-- autocmd("BufWinLeave", {
+--   pattern = "*.*",
+--   callback = function()
+--     vim.cmd.mkview()
+--   end,
+--   group = save_fold,
+-- })
+--
+-- autocmd("BufWinEnter", {
+--   pattern = "*.*",
+--   callback = function()
+--     vim.cmd.loadview({ mods = { emsg_silent = true } })
+--   end,
+--   group = save_fold,
+-- })
 
 -- Float window for Show line diagnostics automatically in hover window
 -- autocmd({ "CursorHold", "CursorHoldI" }, {

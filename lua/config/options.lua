@@ -13,6 +13,7 @@ opt.fileencodings = { "utf-8", "ucs-bom", "gb18030", "gbk", "gb2312", "cp936" }
 -- indent
 opt.tabstop = 4
 opt.shiftwidth = 4
+-- opt.expandtab = false
 
 -- opt.wrap = true
 opt.linebreak = true

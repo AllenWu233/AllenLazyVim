@@ -6,10 +6,10 @@ return {
   -- { "rebelot/kanagawa.nvim" },
 
   -- Configure LazyVim to load specific theme
-  -- {
-  --   "LazyVim/LazyVim",
-  --   opts = {
-  --     colorscheme = "monokai",
-  --   },
-  -- },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "tokyonight-storm",
+    },
+  },
 }
