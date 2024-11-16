@@ -33,7 +33,7 @@ map("n", "<leader>l", "<C-w>l", { desc = "Move Right" })
 map("n", "X", "<cmd>bdelete<cr>", { desc = "Close Tab" })
 
 -- fold or unfold
-map("n", "<leader>a", "za", { desc = "Switch Fold" })
+-- map("n", "<leader>a", "za", { desc = "Switch Fold" })
 
 -- ---------- PLUGINS ---------- --
 -- compiler.nvim

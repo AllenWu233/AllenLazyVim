@@ -82,6 +82,12 @@ a8P"Y888888P" 888P"Y8888P'   8I   `Y8P' "YY8P8PP"Y8888P"    88P      Y8P""Y88P"8
         { action = 'lua LazyVim.pick("oldfiles")()',                 desc = " Recent Files",    icon = " ", key = "r" },
         { action = 'lua LazyVim.pick("live_grep")()',                desc = " Find Text",       icon = " ", key = "g" },
         { action = 'lua LazyVim.pick.config_files()()',              desc = " Config",          icon = " ", key = "c" },
+{
+      action = pick,
+      desc = " Projects",
+      icon = " ",
+      key = "p",
+    },
         { action = 'lua require("persistence").load()',              desc = " Restore Session", icon = " ", key = "s" },
         { action = "LazyExtras",                                     desc = " Lazy Extras",     icon = " ", key = "x" },
         { action = "Lazy",                                           desc = " Lazy",            icon = "󰒲 ", key = "l" },
