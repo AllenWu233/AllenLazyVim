@@ -43,7 +43,6 @@ autocmd("CursorHold", {
   end,
 })
 
--- Set 'shiftwidth = 2' for lua file
 autocmd("FileType", {
   pattern = "lua",
   callback = function()
@@ -52,7 +51,6 @@ autocmd("FileType", {
   end,
 })
 
--- Set 'shiftwidth = 4' for c/c++ file
 autocmd("FileType", {
   pattern = "cpp",
   callback = function()

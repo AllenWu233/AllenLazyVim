@@ -3,7 +3,7 @@
 -- Add any additional keymaps here
 local map = vim.keymap.set
 
--- leader key
+-- Leader key
 vim.g.mapleader = " "
 
 -- ---------- INSERT mode ---------- --
@@ -14,25 +14,24 @@ map("i", "kj", "<ESC>")
 -- map("v", "jk", "<ESC>")
 -- map("v", "kj", "<ESC>")
 
--- fold
--- map("v", "<leader>f", "zf", { desc = "Create fold" })
-
 -- ---------- NORMAL mode ---------- --
--- select all
+-- Select all
 map("n", "<C-A>", "ggVGy", { desc = "Copy All" })
-map("n", "<C-X>", "ggdG", { desc = "Delete All" })
-map("n", "<leader>=", "gg=G", { desc = "Auto Indent" })
+-- map("n", "<C-X>", "ggdG", { desc = "Delete All" })
+-- map("n", "<leader>=", "gg=G", { desc = "Auto Indent" })
 
--- move cursor
-map("n", "<leader>j", "<C-w>j", { desc = "Move Down" })
-map("n", "<leader>k", "<C-w>k", { desc = "Move Up" })
-map("n", "<leader>h", "<C-w>h", { desc = "Move Left" })
-map("n", "<leader>l", "<C-w>l", { desc = "Move Right" })
+-- Move cursor
+-- map("n", "<leader>j", "<C-w>j", { desc = "Move Down" })
+-- map("n", "<leader>k", "<C-w>k", { desc = "Move Up" })
+-- map("n", "<leader>h", "<C-w>h", { desc = "Move Left" })
+-- map("n", "<leader>l", "<C-w>l", { desc = "Move Right" })
 
--- buffer
-map("n", "X", "<cmd>bdelete<cr>", { desc = "Close Tab" })
+-- Buffers
+map("n", "X", function()
+  Snacks.bufdelete()
+end, { desc = "Delete Buffer" })
 
--- fold or unfold
+-- Fold or unfold
 -- map("n", "<leader>a", "za", { desc = "Switch Fold" })
 
 -- ---------- PLUGINS ---------- --
@@ -53,4 +52,4 @@ map(
 map("n", "<M-b>", "<cmd>CompilerToggleResults<cr>", { desc = "Toggle Compiler", noremap = true, silent = true })
 
 -- nvim-colorizer.lua
-map("n", "<leader>ch", "<cmd>ColorizerAttachToBuffer<cr>", { desc = "Highlight Color", noremap = true, silent = true })
+-- map("n", "<leader>ch", "<cmd>ColorizerAttachToBuffer<cr>", { desc = "Highlight Color", noremap = true, silent = true })

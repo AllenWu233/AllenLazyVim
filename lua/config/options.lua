@@ -5,12 +5,13 @@ local opt = vim.opt
 local o = vim.o
 local g = vim.g
 
--- encodeing
+-- ---------- Encoding ---------- --
 -- opt.encoding = "utf-8"
 -- opt.fileencoding = "utf-8"
 opt.fileencodings = { "utf-8", "ucs-bom", "gb18030", "gbk", "gb2312", "cp936" }
 
--- indent
+-- ---------- VIEW ---------- --
+-- Indent
 opt.tabstop = 4
 opt.shiftwidth = 4
 -- opt.expandtab = false
@@ -19,21 +20,23 @@ opt.shiftwidth = 4
 opt.linebreak = true
 opt.wrapmargin = 2
 
--- display lines with a line break
+-- Display lines with a line break
 -- opt.cursorline = true
 
--- keep space when moving cursor
--- opt.scrolloff = 8
+-- Keep space when moving cursor
 opt.scrolloff = 999
 -- opt.sidescrolloff = 8
 
--- time wait for typing shortcut keys
+-- Time wait for typing shortcut keys
 -- opt.timeoutlen = 400
 
 -- opt.colorcolumn = "80"
 
--- show invisible characters
+-- Show invisible characters
 -- opt.list = true
 -- opt.listchars = "space:·"
 
 opt.foldmethod = "manual"
+
+-- ---------- LazyVim ---------- --
+g.snacks_animate = false
