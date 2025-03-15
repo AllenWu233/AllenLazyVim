@@ -4,9 +4,35 @@
 local cmd = vim.cmd
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
-local save_fold = augroup("Persistent Folds", { clear = true })
+-- local save_fold = augroup("Persistent Folds", { clear = true })
 
--- disable automatic comment wrapping and insertion of comment leaders
+-- Set identation for specific filetypes
+local set_indentation = function(pattern, indentation)
+  vim.api.nvim_create_autocmd({ "FileType" }, {
+    pattern = pattern,
+    callback = function()
+      vim.opt.shiftwidth = indentation
+      vim.opt.tabstop = indentation
+    end,
+  })
+end
+set_indentation({ "lua", "html", "beancount", "ledger" }, 2)
+
+-- Autoformat setting
+local set_autoformat = function(pattern, bool_val)
+  vim.api.nvim_create_autocmd({ "FileType" }, {
+    pattern = pattern,
+    callback = function()
+      vim.b.autoformat = bool_val
+    end,
+  })
+end
+-- set_autoformat({ "html" }, false)
+
+-- Disable spelling check
+vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
+-- Disable automatic comment wrapping and insertion of comment leaders
 -- cmd("autocmd BufEnter * silent! set formatoptions-=cro")
 -- cmd("autocmd BufEnter * silent! setlocal formatoptions-=cro")
 
@@ -34,7 +60,7 @@ local save_fold = augroup("Persistent Folds", { clear = true })
 --   group = save_fold,
 -- })
 
--- Float window for Show line diagnostics automatically in hover window
+-- Floating window for showing line diagnostics automatically in hover window
 -- autocmd({ "CursorHold", "CursorHoldI" }, {
 autocmd("CursorHold", {
   group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
@@ -42,22 +68,7 @@ autocmd("CursorHold", {
     vim.diagnostic.open_float(nil, { focus = false })
   end,
 })
-
-autocmd("FileType", {
-  pattern = "lua",
-  callback = function()
-    vim.opt.shiftwidth = 2
-    vim.opt.tabstop = 2
-  end,
-})
-
-autocmd("FileType", {
-  pattern = "cpp",
-  callback = function()
-    vim.opt.shiftwidth = 4
-    vim.opt.tabstop = 4
-  end,
-})
+-- })
 
 -- Disable autopair ' for rust files
 autocmd("FileType", {

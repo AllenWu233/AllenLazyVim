@@ -7,13 +7,6 @@ local function get_workspace_folder_name(path)
   return path:match("([^/]+)/?$") or path
 end
 
--- local function get_workspace_folder_name(path)
---   local ts = string.reverse(path)
---   local _, i = string.find(ts, "/")
---   local m = string.len(ts) - i + 1 -- last '/'
---   return string.sub(path, m + 1)
--- end
-
 return {
   -- -- Disable virtual text in lines
   -- To show diagnostics, move cursor to the line to show a floating window
@@ -146,6 +139,48 @@ return {
           },
           opts = { skip = true },
         },
+      },
+    },
+  },
+
+  {
+    "snacks.nvim",
+    opts = {
+      image = { enabled = true },
+    },
+  },
+
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        -- "bash",
+        -- "c",
+        -- "diff",
+        -- "html",
+        -- "javascript",
+        -- "jsdoc",
+        -- "json",
+        -- "jsonc",
+        -- "lua",
+        -- "luadoc",
+        -- "luap",
+        -- "markdown",
+        -- "markdown_inline",
+        -- "printf",
+        -- "python",
+        -- "query",
+        -- "regex",
+        -- "toml",
+        -- "tsx",
+        -- "typescript",
+        -- "vim",
+        -- "vimdoc",
+        -- "xml",
+        -- "yaml",
+
+        -- "ledger",
+        "beancount",
       },
     },
   },
