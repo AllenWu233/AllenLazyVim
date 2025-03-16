@@ -77,3 +77,11 @@ autocmd("FileType", {
     vim.keymap.set("i", "'", "'", { buffer = 0 })
   end,
 })
+
+-- Set root directory
+-- autocmd("BufEnter", {
+--   pattern = "*",
+--   callback = function()
+--     vim.cmd("cd %:p:h")
+--   end,
+-- })
