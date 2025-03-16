@@ -11,39 +11,27 @@
     "description": "Standard transaction template"
   },
 
-  "Food Template": {
-    "prefix": "food",
+  "Meal Template": {
+    "prefix": "canteen",
     "body": [
       "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} * \"Food\"",
-      "  Expenses:Food:${1:Type}       ${2:Amount} CNY",
-      "  Assets:${3:Wechat}         -${2} CNY",
+      "  Expenses:Food:Meal      ${1:Amount} CNY",
+      "  Assets:${2:Wechat}      -${1} CNY",
       "",
       "$0"
     ],
     "description": "Meal expenses template"
   },
 
-  "Canteen Template": {
-    "prefix": "canteen",
+  "Ingrediant Template": {
+    "prefix": "ingrediant",
     "body": [
       "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} * \"Food\"",
-      "  Expenses:Food:Canteen      ${1:Amount} CNY",
-      "  Assets:${2:Wechat}      -${1} CNY",
-      "",
-      "$0"
-    ],
-    "description": "Canteen expenses template"
-  },
-
-  "Restaurant Template": {
-    "prefix": "restaurant",
-    "body": [
-      "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} * \"Food\"",
-      "  Expenses:Food:Restaurant       ${1:Amount} CNY",
+      "  Expenses:Food:Ingrediant       ${1:Amount} CNY",
       "  Assets:${2:Wechat}         -${1} CNY",
       "",
       "$0"
     ],
-    "description": "Restaurant expenses template"
+    "description": "Ingrediant expenses template"
   }
 }
