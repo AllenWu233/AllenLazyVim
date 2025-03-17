@@ -12,7 +12,7 @@
   },
 
   "Meal Template": {
-    "prefix": "canteen",
+    "prefix": "meal",
     "body": [
       "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} * \"Food\"",
       "  Expenses:Food:Meal      ${1:Amount} CNY",
