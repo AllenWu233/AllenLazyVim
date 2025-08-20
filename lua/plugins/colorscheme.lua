@@ -1,6 +1,6 @@
 return {
   -- { "ellisonleao/gruvbox.nvim" },
-  { "sainnhe/gruvbox-material" },
+  -- { "sainnhe/gruvbox-material" },
   -- { "AlexvZyl/nordic.nvim" },
   -- { "tanvirtin/monokai.nvim" },
   -- { "marko-cerovac/material.nvim" },
@@ -12,7 +12,8 @@ return {
     opts = {
       -- colorscheme = "tokyonight-storm",
       -- colorscheme = "catppuccin-mocha",
-      colorscheme = "gruvbox-material",
+      -- colorscheme = "gruvbox-material",
+      colorscheme = "lunaperch",
     },
   },
 }

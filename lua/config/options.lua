@@ -36,6 +36,8 @@ opt.scrolloff = 999
 -- opt.list = true
 -- opt.listchars = "space:·"
 
+opt.relativenumber = false
+
 -- opt.foldmethod = "manual"
 
 -- Disable netrw
